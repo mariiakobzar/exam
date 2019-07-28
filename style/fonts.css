@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+@font-face {
+	font-family: 'GothamBold';
+	src: url('../font/gothambold1.woff');
+}
+
+@font-face {
+	font-family: 'GothamBook';
+	src: url('../font/GothamBook.woff');
+}
+
+@font-face {
+	font-family: 'GothamMedium';
+	src: url('../font/gotham-medium-webfont.woff');
+}
+
+@font-face {
+	font-family: 'GothamItalic';
+	src: url('../font/GothamMediumItalic.ttf');
+}

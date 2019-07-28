@@ -1,0 +1,565 @@
+$mainColor: #444;
+$mainBackground: #fff;
+$container: 1170px;
+$colGups: 15px;
+$textFont-size: 1rem; // 16px
+$linkColor: blue;
+$breakpoints: (xs: 0, sm: 575px, md: 768px, lg: 1025px, xl: 1200px, xxl: 1440px);
+
+@import "slick.scss";
+@import "slick-theme.scss";
+
+//===========  mixins start ===========//
+// columns
+$columns: 12;
+$col: $columns;
+
+@mixin col($col, $columns) {
+  width: percentage($col/$columns);
+}
+
+//===========  mixins end ===========//
+@mixin col-create() {
+  @while $col>0 {
+    .col-#{$col} {
+      @include col($col, $columns);
+    }
+
+    $col: $col - 1;
+  }
+}
+
+#map1 {
+  width: 100vw;
+  height: 700px;
+}
+
+.container {
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// layout
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$colGups;
+  margin-left: -$colGups;
+}
+
+[class^='col'] {
+  padding-left: $colGups;
+  padding-right: $colGups;
+  width: 100%;
+  min-height: 1px;
+}
+
+@include col-create();
+
+// main styles
+body {
+  font-family: 'GothamBook', sans-serif;
+  font-size: 1rem;
+}
+
+//buttons
+a,
+button {
+  transition: .3s ease-in;
+  transition-property: color, background-color, opacity;
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+button,
+.button {
+  cursor: pointer;
+}
+
+ul li {
+  color: white;
+  font-size: 14px;
+}
+
+.header {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  padding-top: 50px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.menu {
+  display: flex;
+
+  &__item {
+    text-transform: uppercase;
+    margin-right: 60px;
+
+    span {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      border-radius: 100%;
+      border: 1px solid white;
+      margin-right: 10px;
+    }
+  }
+}
+
+.socials {
+  color: white;
+  display: flex;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 100%;
+    border: 1px solid white;
+    margin-right: 20px;
+  }
+}
+
+.hero {
+  position: relative;
+  color: white;
+  height: 100vh;
+
+  &__dots-box {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    margin-right: 40px;
+
+    .slick-active button {
+      background-color: white;
+    }
+
+    button {
+      height: 10px;
+      width: 10px;
+      border-radius: 100%;
+      border: 1px solid white;
+      background-color: transparent;
+      color: transparent;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    padding: 400px;
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+  }
+
+  &__title {
+    font-family: 'GothamBold', sans-serif;
+    font-size: 80px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-family: 'GothamBook', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 30%;
+  }
+
+  &__link {
+    font-family: 'GothamBook', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 100%;
+    border: 1px solid white;
+    margin: 0 auto;
+
+    svg {
+      height: 12px;
+    }
+  }
+}
+
+.title {
+  font-size: 44px;
+  color: #2c4058;
+  font-family: 'GothamBold', sans-serif;
+  text-transform: uppercase;
+}
+
+.about {
+
+  &__title {
+    padding: 100px 0;
+    padding-bottom: 170px;
+    text-align: center;
+  }
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 140px;
+
+    &__image {
+      position: relative;
+      height: 470px;
+      width: 630px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &::before {
+        content: "";
+        z-index: -5;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #55b7ff;
+        bottom: 70px;
+        right: 215px;
+      }
+    }
+
+    &-info {
+      width: 470px;
+
+      .title--small {
+        font-family: 'GothamBook', sans-serif;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      .title {
+        margin-bottom: 35px;
+      }
+
+      &__text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        height: 4em;
+        margin-bottom: 35px;
+      }
+
+      &__link {
+        margin-bottom: 50px;
+      }
+
+      &__address {
+        font-family: 'GothamItalic', sans-serif;
+        font-size: 18px;
+      }
+    }
+
+    &--left {
+      .about-item__image::before {
+        background-color: #7e5aff;
+        bottom: 70px;
+        left: 215px;
+      }
+    }
+  }
+}
+
+.btn {
+  font-family: 'GothamBook', sans-serif;
+  display: inline-block;
+  border: 1px solid #4b5562;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  &:hover{
+    background-color: #4b5562;
+    color: white;
+  }
+}
+
+.title--small2 {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'GothamMedium', sans-serif;
+  font-size: 44px;
+  text-transform: uppercase;
+  padding: 180px 0 100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: white;
+    right: 45%;
+    width: 10%;
+    top: 40%;
+  }
+}
+
+.news {
+  background-image: url("../img/bg.png");
+  background-size: cover;
+  position: relative;
+  padding-bottom: 200px;
+
+  &-slider {
+    &-item {
+      margin: 0 15px;
+      width: 370px;
+
+      &__image {
+        height: 240px;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-info {
+        padding: 30px 20px;
+        background-color: white;
+
+        h3 {
+          font-size: 22px;
+          font-family: 'GothamBold', sans-serif;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+        }
+
+        &__text {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 18px;
+          margin-bottom: 30px;
+        }
+
+        .author {
+          display: flex;
+
+          &__image {
+            border-radius: 100%;
+            width: 63px;
+            height: 63px;
+            margin-right: 20px;
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+
+          &-info {
+            font-family: 'GothamBook', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &__name {
+              font-size: 18px;
+              text-transform: uppercase;
+              margin-bottom: 10px;
+            }
+
+            &__date {
+              font-size: 14px;
+              color: #6cc1ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__dots-box {
+    position: absolute;
+    right: 40%;
+    bottom: -100px;
+    display: flex;
+
+    .slick-active button {
+      background-color: white;
+    }
+
+    button {
+      height: 10px;
+      width: 10px;
+      border-radius: 100%;
+      border: 1px solid white;
+      background-color: transparent;
+      color: transparent;
+      margin-right: 40px;
+    }
+  }
+}
+
+.gallery {
+  padding-bottom: 140px;
+
+  .container {
+    text-align: center;
+  }
+
+  &__btn {
+    margin: 0 auto;
+  }
+
+  .title--small2 {
+    color: #2c4058;
+
+    &::before {
+      background-color: #2c4058;
+    }
+  }
+
+  &-box {
+    width: 100%;
+    height: 440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 60px;
+
+    &-item {
+      width: 285px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__image {
+        width: 100%;
+        height: 215px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &--big {
+        width: 580px;
+        height: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-image: url("../img/bg3.png");
+  background-size: cover;
+
+  &-info {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+
+  .container {
+    width: 770px;
+    position: relative;
+    height: 100%;
+  }
+
+  &-card {
+    width: 770px;
+    height: 450px;
+    position: absolute;
+    top: -300px;
+    padding: 80px 50px;
+    color: #2c4058;
+    background-image: url("../img/bg-card.png");
+    background-size: inherit;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-color: #fff;
+
+    .title--small2 {
+      padding: 0;
+      color: #2c4058;
+      margin-bottom: 40px;
+
+      &::before {
+        background-color: #2c4058;
+        top: -40px;
+      }
+    }
+
+    &-box {
+      display: flex;
+      justify-content: space-between;
+
+      &__info {
+        p {
+          font-size: 18px;
+          font-family: 'GothamMedium', sans-serif;
+          margin-bottom: 40px;
+        }
+
+        svg {
+          fill: #7e5aff;
+          margin-right: 10px;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        input:not([type="submit"]) {
+          font-size: 18px;
+          font-family: 'GothamMedium', sans-serif;
+          padding: 15px 0;
+          width: 310px;
+          margin-bottom: 30px;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #000;
+        }
+
+        .btn {
+          background-color: transparent;
+          width: 140px;
+        }
+      }
+    }
+  }
+
+  &-info__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .copyrights {
+    color: white;
+    font-size: 14px;
+  }
+}
