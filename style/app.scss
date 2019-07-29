@@ -136,6 +136,7 @@ ul li {
   color: white;
   height: 100vh;
 
+
   &__dots-box {
     position: absolute;
     right: 0;
@@ -158,11 +159,14 @@ ul li {
   }
 
   &__item {
-    padding: 400px;
     background-image: url("../img/bg.png");
     background-size: cover;
     text-align: center;
     height: 100vh;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   &__title {
@@ -178,7 +182,7 @@ ul li {
     font-size: 18px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 30%;
+    margin-bottom: 20%;
   }
 
   &__link {
@@ -192,7 +196,7 @@ ul li {
     width: 44px;
     border-radius: 100%;
     border: 1px solid white;
-    margin: 0 auto;
+    margin-bottom: 5%;
 
     svg {
       height: 12px;
@@ -289,7 +293,8 @@ ul li {
   border: 1px solid #4b5562;
   padding: 15px 30px;
   text-transform: uppercase;
-  &:hover{
+
+  &:hover {
     background-color: #4b5562;
     color: white;
   }

@@ -461,11 +461,23 @@ ul li {
 }
 
 .hero__item {
-  padding: 400px;
   background-image: url("../img/bg.png");
   background-size: cover;
   text-align: center;
   height: 100vh;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .hero__title {
@@ -481,7 +493,7 @@ ul li {
   font-size: 18px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 30%;
+  margin-bottom: 20%;
 }
 
 .hero__link {
@@ -501,7 +513,7 @@ ul li {
   width: 44px;
   border-radius: 100%;
   border: 1px solid white;
-  margin: 0 auto;
+  margin-bottom: 5%;
 }
 
 .hero__link svg {
